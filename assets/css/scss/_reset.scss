@@ -1,0 +1,70 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: $primary;
+  color: #000000;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+svg,
+img {
+  width: 100%;
+  //height: auto;
+}
+
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+button,
+input {
+  border: 0;
+  &:focus {
+    border: 0;
+  }
+}
+
+body {
+  width: 100%;
+  background-color: $background;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primary;
+  border-radius: 5px;
+}

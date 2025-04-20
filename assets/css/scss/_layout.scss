@@ -1,0 +1,370 @@
+// Mixins de responsividade
+
+// Container-devices
+$container-xl: 1140px;
+$container-l: 1024px;
+$container-s: 620px;
+$gutter: 8px;
+
+// Mixin de media-queries
+@mixin responsive($device) {
+  @if $device == xl {
+    @media screen and (max-width: #{$container-xl}) {
+      @content;
+    }
+  } @else if $device == l {
+    @media screen and (max-width: #{$container-l}) {
+      @content;
+    }
+  } @else if $device == s {
+    // For resolutions less than 960px
+    @media screen and (max-width: $container-s) {
+      @content;
+    }
+  }
+}
+
+@function grid($col, $total: 12) {
+  @return calc($col / $total) * 100%;
+}
+
+@for $i from 1 through 12 {
+  .grid-#{$i} {
+    width: calc(#{grid($i)} - #{$gutter});
+    margin: calc($gutter / 2);
+
+    float: left;
+
+    @include responsive(l) {
+      width: calc(100% - #{$gutter});
+      float: none;
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .grid-nobreak-#{$i} {
+    width: calc(#{grid($i)} - #{$gutter});
+    margin: calc($gutter / 2);
+    float: left;
+  }
+}
+
+.container {
+  max-width: $container-xl;
+  margin: 0 auto;
+
+  padding: 96px 24px;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @include responsive(l) {
+    flex-direction: column;
+
+    padding: 32px 16px;
+  }
+}
+
+.container-clean {
+  max-width: $container-xl;
+  margin: 0 auto;
+
+  padding: 96px 24px;
+
+  @include responsive(l) {
+    flex-direction: column;
+
+    padding: 32px 16px;
+  }
+}
+
+.row {
+  // clearfix
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.stretch {
+  align-self: stretch;
+}
+
+.line-height {
+  line-height: 160%;
+}
+
+.text-decoration-line {
+  text-decoration-line: underline;
+}
+
+canvas {
+  position: absolute;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.h-100 {
+  height: 100vh;
+}
+
+.h-100p {
+  height: 100%;
+}
+
+.desktop {
+  display: block;
+
+  @include responsive(s) {
+    display: none;
+  }
+}
+
+.overflow {
+  overflow: auto;
+}
+
+.mobile {
+  @include responsive(l) {
+    display: none;
+  }
+}
+
+.flex-start-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.flex-start-column {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-center-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  @include responsive(s) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-items-center {
+  align-items: center;
+}
+.align-items-start {
+  align-items: flex-start;
+}
+.align-items-end {
+  align-items: flex-end;
+}
+
+.relative {
+  position: relative;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-item-1 {
+  flex: 1 1 360px;
+}
+
+.flex-item-2 {
+  flex: 2 1 360px;
+}
+
+.flex-item-3 {
+  flex: 3 1 360px;
+}
+
+.flex-item-4 {
+  flex: 4 1 360px;
+}
+
+.flex-item-5 {
+  flex: 5 1 360px;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+// Width's
+.w-auto {
+  width: auto;
+}
+.h-auto {
+  height: auto;
+}
+.w-100 {
+  width: 100%;
+}
+.w-75 {
+  width: 75%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-25 {
+  width: 25%;
+}
+
+.w-120 {
+  width: 120px;
+}
+
+// MENU
+nav {
+    position: absolute;
+    background-color: $card;
+    display: flex;
+    width: 355.98px;
+    padding: 20px;
+    align-items: center;
+    align-content: center;
+    gap: 10px 32px;
+    flex-wrap: wrap;
+    border-radius: 16px;
+    ul {
+      display: flex;
+      justify-content: center;
+
+      li {
+        // margin: 0 15px;
+
+        a {
+          color: $text;
+          font-family: "Outfit";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+
+          padding: 10px 20px;
+          display: block;
+          position: relative;
+
+          &.active {
+            color: $secondary;
+
+            &:before {
+              content: ">";
+              position: absolute;
+              left: 1px;
+              color: $secondary;
+            }
+          }
+
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+}
+
+// CARD
+.card {
+    background-color: $card;
+    padding: 21px 52px;
+    gap: 20px;
+    border-radius: 16px;
+
+    .logo {
+        width: 24px;
+        height: 32px;
+    }
+
+    .id {
+        border-radius: 3px;
+        border: 1px solid rgba(152, 255, 152, 0.10);
+
+        .text-id {
+            color: #98FF98;
+            text-shadow: 0px 0px 7.5px rgba(25, 250, 154, 0.50);
+            font-family: "Space Grotesk";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 160%; /* 22.4px */
+        }
+    }
+
+    .text-card {
+        .nav-location {
+            .city {
+              color: $title;
+              font-family: "Space Grotesk";
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+            }
+        
+            #time {
+              color: $secondary;
+              font-family: "Space Grotesk";
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 160%;
+            }
+        
+            #temperature {
+              color: $secondary;
+              font-family: "Space Grotesk";
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 160%; /* 19.2px */
+            }
+          }
+
+        .rights {
+            color: #9E9EA7;
+            font-family: "Space Grotesk";
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 160%; /* 16px */
+        }
+    }
+
+}
+
