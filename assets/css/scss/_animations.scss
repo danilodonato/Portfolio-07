@@ -1,0 +1,14 @@
+.stamp-letters {
+  animation: rotate 7s linear infinite;
+  transform-origin: center center;
+  transform-box: fill-box;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -5,7 +5,7 @@
   font-family: "Space Grotesk", sans-serif;
 
   @if $size ==h1 and $device ==desktop {
-    font-size: 58px;
+    font-size: 48px;
     line-height: normal;
     font-weight: 500;
   } @else if $size ==h1 and $device ==mobile {
@@ -78,7 +78,7 @@
 }
 
 h1 {
-  color: $primary;
+  color: $title;
   @include typeface-1(h1, desktop);
 
   @include responsive(s) {
@@ -91,9 +91,9 @@ h1 {
 }
 
 h2 {
-  color: #f5f7ff;
+  color: #FBFCFF;
   font-family: "Space Grotesk";
-  font-size: 16px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -118,12 +118,31 @@ h4 {
   line-height: normal;
 }
 
+.blue {
+  color: $primary;
+}
 
-// p {
-//   color: #9E9EA7;
-//   font-family: "Outfit";
-// }
+.green {
+  color: $secondary;
+}
 
+p {
+  color: $text;
+  font-family: Outfit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 27px */
+}
+
+.number {
+  color: #98FF98;
+  font-family: "Space Grotesk";
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 
 .date {
   color: #84848c;
@@ -155,3 +174,8 @@ h4 {
 .text-right {
   text-align: right;
 }
+
+.line-height-130 {
+  line-height: 130%;
+}
+
