@@ -464,6 +464,9 @@ nav ul {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 @media screen and (max-width: 1024px) {
   nav ul {
@@ -769,6 +772,75 @@ div .icon-social-media:hover {
   }
 }
 
+.image-full-project {
+  width: 655px;
+  height: 331px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: #1a1a1e;
+}
+@media screen and (max-width: 1024px) {
+  .image-full-project {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .text-projects {
+    text-align: left;
+  }
+}
+
+ul {
+  margin-top: 0;
+  padding-left: 0;
+  list-style-position: inside;
+}
+ul li {
+  color: #9e9ea7;
+  font-family: Outfit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 27px */
+}
+
+.tags-projects {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.tags-projects .tags {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  background: rgba(145, 167, 255, 0.1);
+  color: #91a7ff;
+  font-family: Outfit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 27px */
+}
+
+.box-projects-completed {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 16px;
+  background: #1a1a1e;
+}
+.box-projects-completed img {
+  width: 140px;
+  height: 78px;
+  border-radius: 2px;
+  border: 0.2px solid #74747d;
+}
 h1 {
   color: #FBFCFF;
   font-family: "Space Grotesk", sans-serif;
@@ -1516,13 +1588,6 @@ p {
 ::selection {
   background-color: #91A7FF;
   color: #000000;
-}
-
-ul,
-ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 a {
